@@ -1,9 +1,11 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
-import { prisma } from './lib/prisma'
+import { appRoutes } from './route'
 
 const app = Fastify()
+ 
 app.register(cors)
+app.register(appRoutes)
 
 app.get('/', () => {
   return 'Homepage, server running!'
